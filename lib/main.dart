@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task05/presentation/HomeScreen/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task05/presentation/business_logic/bloc/mypermission_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +12,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return MultiBlocProvider(
+      providers:[
+        BlocProvider(create: (_)=>MypermissionBloc()),
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+      
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: HomeScreen(),
       ),
-      home: HomeScreen(),
     );
   }
 }

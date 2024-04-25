@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:url_launcher/url_launcher.dart';
 
 class DialogUtils {
-  static final _random =Random();
+  static final _random = Random();
+
   // static int randomNumber1 = Random().nextInt(900000)+100000;
   // static int randomNumber2 = Random().nextInt(900)+100;
   // static int Number = randomNumber1+randomNumber2;
@@ -14,6 +15,7 @@ class DialogUtils {
     }
     return s;
   }
+
   void makeCall() async {
     final call = Uri.parse('tel:+92 3${getString().toString()}');
 
@@ -36,9 +38,10 @@ class DialogUtils {
   void sendMessage() async {
     final sms = Uri.parse('sms: +92 3${getString()}');
     if (await canLaunchUrl(sms)) {
-    launchUrl(sms);
+      launchUrl(sms);
     } else {
-    throw 'Could not launch $sms';
+      throw 'Could not launch $sms';
     }
   }
+
 }

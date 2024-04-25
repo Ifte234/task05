@@ -1,0 +1,4 @@
+enum MyStatus{
+  grant,
+  denied
+}
